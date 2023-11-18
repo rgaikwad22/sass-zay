@@ -1,0 +1,63 @@
+/*=================================
+  categories styling starts here
+=================================*/
+
+.categories-section {
+  padding: 100px 0;
+  text-align: center;
+
+  & .wrapper {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  & h3 {
+    color: map-get($map: $colors, $key: lightBrown);
+    font-size: 50px;
+  }
+
+  & p {
+    margin-top: 10px;
+    width: 60%;
+    color: #4A4A4A;
+    line-height: 30px;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  &__bottom {
+    margin-top: 50px;
+    width: 100%;
+    @include flex($align: center, $justify: space-between);
+    margin-bottom: 50px;
+
+    & li { text-align: center; }
+    & figure { margin-bottom: 30px; }
+
+    & img {
+      width: 100%;
+      max-height: 289px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+
+    & figcaption {
+      font-size: 23px;
+      font-weight: 700;
+      color: #313132;
+    }
+
+    & .go-shop {
+      color: #fff;
+      padding: 14px 20px;
+      background-color: #5AAC6E;
+      border-radius: 4px;
+    }
+  }
+}
+
+/*=================================
+  categories styling ends here
+=================================*/

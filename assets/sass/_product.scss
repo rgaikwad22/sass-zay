@@ -1,0 +1,111 @@
+/*=================================
+  product styling starts here
+=================================*/
+
+.product-section {
+  background-color: #E9EEF4;
+  padding: 80px 0;
+
+  & .wrapper {
+    width: 80%;
+    @include flex($direction: column, $align: center);
+  }
+
+  & h3 {
+    color: map-get($map: $colors, $key: lightBrown);
+    font-size: 50px;
+  }
+
+  & p {
+    margin-top: 10px;
+    width: 60%;
+    color: #4A4A4A;
+    line-height: 30px;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  &__product-bottom {
+    display: flex;
+    justify-content: space-between;
+    
+  }
+
+  &__articles {
+    flex-basis: 100%;
+
+    & img {
+      width: 100%;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+  }
+
+  &__article-bottom {
+    background-color: #fff;
+    padding: 20px 15px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+    .ratings-price {
+      @include flex($justify: space-between);
+
+      & .star-ratings {
+        @include flex(flex);
+
+        .yellow-star::before {
+          content: "\f005";
+          color: #EDEB59;
+          cursor: pointer;
+          margin-right: 3px;
+        }
+
+        .gray-star::before {
+          content: "\f005";
+          color: #BBBDBC;
+          cursor: pointer;
+          margin-right: 3px;
+
+        }
+      }
+
+      .star-ratings li {
+        @include flex(flex);
+        margin-right: 10px;
+        font-size: 18px;
+      }
+    }
+
+    .article-heading {
+      font-size: 30px;
+      margin-top: 20px;
+
+      & a {
+        color: #222834;
+      }
+    }
+
+    & p {
+      width: 90%;
+      font-size: 18px;
+      color: #313132;
+      line-height: 25px;
+      text-align: start;
+    }
+
+    & .reviews {
+      display: block;
+      margin: 40px 0 60px;
+      color: #C0BEC9;
+      font-size: 20px;
+    }
+  }
+
+  & article:not(:last-child) {
+    margin-right: 30px;
+  }
+}
+
+/*=================================
+  product styling ends here
+=================================*/

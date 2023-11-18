@@ -1,0 +1,163 @@
+%prev-next-btn {
+  @include flex(inline-block);
+  background: none;
+  border: none;
+  width: 56px;
+  height: 67px;
+}
+
+%prev-next-btn-icon {
+  color: map-get($map: $colors, $key: prevNextBtn);
+  font-size: 70px;
+}
+
+/*=================================
+  banner styling starts here
+=================================*/
+
+.banner-section {
+  background-color: #EFEFEF;
+  padding: 100px 0;
+  position: relative;
+  @include flex(flex);
+  align-items: center;
+
+  & .wrapper {
+    @include flex(flex);
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__previous-next-btn {
+    @include flex(flex);
+    justify-content: space-between;
+    position: absolute;
+    left: 1%;
+    right: 0;
+
+    .previous::before {
+      content: "\f104";
+      @extend %prev-next-btn-icon;
+    }
+
+    .next::after {
+      content: "\f105";
+      @extend %prev-next-btn-icon;
+    }
+
+    .previous {
+      @extend %prev-next-btn;
+    }
+
+    .next {
+      @extend %prev-next-btn;
+    }
+
+  }
+
+  &__banner-slider {
+    @include flex(flex);
+    margin-bottom: 70px;
+
+    & li {
+      display: none;
+    }
+
+    & li:first-child {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+
+    & h2 {
+      @include banner-heading(50px, map-get($map: $colors, $key: lightBrown), 10px)
+    }
+
+    & h3 {
+      @include banner-heading(30px, #555557, 5px)
+    }
+
+    & p {
+      color: #4A4A4A;
+      line-height: 30px;
+      max-width: 35vw;
+      font-size: 18px;
+
+      .text-black {
+        color: #000;
+      }
+    }
+
+    .banner-text {
+      margin-right: 20px;
+    }
+  }
+
+  &__banner-navigation {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    & li {
+      background-color: #A5CEAF;
+      width: 30px;
+      height: 4px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    &>.active {
+      background-color: #59A96A;
+    }
+  }
+
+  @at-root {
+    @include responsive-reverse(map-get($devices, tablet)) {
+      .previous {
+        transition: 0.3s ease-in-out;
+      }
+    
+      .previous:hover {
+        transform: scale(1.1);
+        transition: 0.3s ease-in-out;
+      }
+    
+      .next {
+        transition: 0.3s ease-in-out;
+      }
+    
+      .next:hover {
+        transform: scale(1.1);
+        transition: 0.3s ease-in-out;
+      }
+
+      &__banner-navigation li:hover {
+        background-color: #59A96A;
+      }
+    }
+
+    @include responsive(map-get($devices, tablet)) {
+      &__banner-slider h2 {
+        font-size: 40px;
+      }
+    }
+
+    @include responsive(map-get($devices, ipad)) {
+      &__banner-slider h2 {
+        font-size: 30px;
+      }
+    }
+
+    @include responsive(map-get($devices, largePhone)) {
+      &__banner-slider h2 {
+        font-size: 25px;
+      }
+    }
+  }
+
+}
+
+/*=================================
+  banner styling ends here
+=================================*/

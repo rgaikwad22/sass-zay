@@ -1,0 +1,51 @@
+// common styling starts here
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+.icon {
+  width: 13px;
+  height: 13px;
+  position: relative;
+  color: map-get($map: $colors, $key: lightWhite);
+  display: block;
+  text-indent: -9999px;
+}
+
+.icon:before,
+.icon::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-indent: 0;
+  display: block;
+  font-family: "FontAwesome";
+}
+
+/*for wrapper*/
+.wrapper {
+  width: 86.50%;
+  max-width: 1290px;
+  margin: 0 auto;
+}
+
+// common styling ends here

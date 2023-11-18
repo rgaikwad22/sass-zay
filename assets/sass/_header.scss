@@ -1,0 +1,263 @@
+%icons-prop {
+  color: #1C2320;
+  font-size: 18px;
+}
+
+%icon-values {
+  position: absolute;
+  bottom: 5px;
+  background-color: #EAEDF5;
+  text-align: center;
+}
+
+%font-fam {
+  font-family: "FontAwesome";
+  margin-right: 10px;
+}
+
+/*=================================
+  Header-Top styling starts here
+=================================*/
+
+.header-section {
+  &__top {
+    background-color: map-get($map: $colors, $key: secondaryColor);
+    padding: 13px 0;
+    font-size: 13px;
+  }
+
+  &__contact {
+
+    &>a:not(:last-child) {
+      margin-right: 10px;
+    }
+
+    & a {
+      color: map-get($map: $colors, $key: lightWhite);
+    }
+
+    .mail-icon::before {
+      @include icon-content("\f0e0");
+      @extend %font-fam;
+    }
+
+    .phone-icon::before {
+      @include icon-content("\f879");
+      @extend %font-fam;
+    }
+
+  }
+
+  .wrapper {
+    @include flex($justify: space-between);
+  }
+
+  &__top-media {
+    @include flex(flex);
+
+    &>li:not(:last-child) {
+      margin-right: 15px;
+    }
+
+    .facebook::before {
+      @include icon-content("\f39e");
+    }
+
+    .instagram::before {
+      @include icon-content("\f16d");
+    }
+
+    .twitter::before {
+      @include icon-content("\f099");
+    }
+
+    .linked-in::before {
+      @include icon-content("\f08c");
+    }
+  }
+
+  /*=================================
+  Header-Top styling ends here
+  =================================*/
+
+  /*=================================
+    Header-bottom styling starts here
+  =================================*/
+
+  &__bottom {
+    padding: 20px 0;
+
+    & .wrapper {
+      @include flex($justify: space-between, $align: center);
+    }
+
+  }
+
+  &__logo a {
+    color: map-get($map: $colors, $key: primaryColor);
+    font-size: 54px;
+    font-weight: 600;
+  }
+
+  &__nav {
+    @include flex($justify: center);
+    flex-basis: 50%;
+  }
+
+  &__nav-links {
+    @include flex($justify: space-between);
+    flex-basis: 100%;
+
+    & a {
+      color: #746f6f;
+      font-size: 19px;
+      transition: all .3s ease-in-out;
+    }
+
+    @include responsive-reverse(map-get($devices, tablet)) {
+      & a:after {
+        display: block;
+        content: '';
+        border-bottom: solid 3px #57B076;
+        transform: scaleX(0);
+        transition: transform 250ms ease-in-out;
+      }
+
+      & a:hover:after {
+        transform: scaleX(1);
+      }
+    }
+
+  }
+
+  &__header-icons {
+    @include flex(flex);
+
+    & li {
+      width: 18px;
+      height: 18px;
+
+      .cart-icon::before {
+        @include icon-content("\f218");
+        @extend %icons-prop;
+      }
+
+      .search-icon::before {
+        @include icon-content("\f002");
+        @extend %icons-prop;
+        cursor: pointer;
+      }
+
+      .profile-icon::before {
+        @include icon-content("\f007");
+        @extend %icons-prop;
+      }
+
+      .search-icon {
+        @include flex(block);
+        border: none;
+        background: none;
+      }
+
+      .search-form {
+        @include flex($none: none);
+        margin-top: 20px;
+      }
+
+      .cart-value {
+        @extend %icon-values;
+        left: 8px;
+        border-radius: 50%;
+        width: 20px;
+        padding: 2px;
+      }
+
+      .profile-value {
+        @extend %icon-values;
+        border-radius: 43%;
+        width: 37px;
+        padding: 3px;
+      }
+
+      // @at-root {
+      @include responsive-reverse(map-get($devices, tablet)) {
+
+        & button:hover::before,
+        & a:hover::before {
+          color: #57B076;
+        }
+
+        // }
+      }
+    }
+
+    .cart {
+      position: relative;
+    }
+
+    .profile {
+      position: relative;
+    }
+
+    & li:not(:last-child) {
+      margin-right: 30px;
+    }
+  }
+
+  &__hamberger-icon {
+    @include flex($none: none);
+  }
+
+  /*=================================
+    Header-bottom styling ends here
+  =================================*/
+
+  @at-root {
+
+    // for hover effect
+    @include responsive-reverse(map-get($devices, tablet)) {
+      .search-icon:hover+.search-form {
+        display: block;
+      }
+      
+      .container a:hover {
+        color: map-get($map: $colors, $key: primaryColor);
+      }
+    }
+
+    @include responsive(map-get($devices, tablet)) {
+      &__nav-links {
+        display: none;
+      }
+
+      &__hamberger-icon {
+        display: block;
+        margin-left: 20px;
+      }
+
+      &__hamberger-icon::before {
+        content: "\f0c9";
+        color: #1C2320;
+        margin-right: 10px;
+        font-size: 20px;
+      }
+    }
+
+    @include responsive(map-get($devices, largePhone)) {
+      &__contact {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .search-icon {
+        margin-right: 20px;
+      }
+    
+      &__logo a {
+        font-size: 40px;
+      }
+
+    }
+  }
+
+}

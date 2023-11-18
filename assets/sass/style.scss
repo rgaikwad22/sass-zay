@@ -1,0 +1,19 @@
+// reset scss 
+@import "default-sass/reset";
+// sass variables
+@import "default-sass/_variables";
+// mixins
+@import "default-sass/mixins";
+// global scss 
+@import "default-sass/global";
+// sections starts here
+// header section
+@import "_header.scss";
+// banner section
+@import "_banner.scss";
+// categories section
+@import "_categories";
+// product section
+@import "_product";
+// footer section
+@import "_footer"
